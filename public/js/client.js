@@ -48,6 +48,7 @@ function addTask(event) {
 }
 
 function completeTask() {
+  alert('Great job on finishing a task!');
   var task = $(this).data('id');
   console.log('task on button: ', task);
   task.complete = true;

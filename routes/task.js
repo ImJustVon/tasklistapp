@@ -40,8 +40,8 @@ router.post('/', function (req, res) {
         return;
       }
 
-      client.query('INSERT INTO (task, discription, complete FROM tasklist) VALUES ($1, $2, $3)',
-      [req.body.task, req.body.discription, req.body.complete], function (err, result) {
+      client.query('INSERT INTO tasklist (task, discription, complete) VALUES ($1, $2, $3)',
+      [req.body.task, req.body.discription, false], function (err, result) {
         if (err) {
           console.log('Error querying DB', err);
           res.sendStatus(500);

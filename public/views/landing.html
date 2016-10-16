@@ -4,15 +4,21 @@
     <meta charset="utf-8">
     <script src="/venders/jquery.min.js"></script>
     <script src="/js/client.js"></script>
+    <link rel="stylesheet" href="styles/stylesheet.css" />
     <link rel="stylesheet" href="venders/bootstrap.min.css" />
+
     <title>Task List</title>
   </head>
   <body>
     <h1 class="cpl-xs-12 text-center">Task List</h1>
     <h2 class="col-xs-12">To Do</h2>
-    <div class="todo">
+    <div class="container">
+    <table class="table table-responsive">
+      <tbody id="todo">
 
-    </div>
+      </tbody>
+    </table>
+  </div>
     <form class="add-task container-fluid">
       <div class="form-group col-md-4">
         <label for="task">Task: </label>
@@ -25,8 +31,10 @@
       <button id="add-task" class="btn btn-default btn-primary col-md-1">Add Task</button>
     </form>
     <h2 class="col-xs-12">Complete</h2>
-    <div class="complete">
+    <table class="table table-responsive">
+      <tbody id="complete">
 
-    </div>
+      </tbody>
+    </table>
   </body>
 </html>

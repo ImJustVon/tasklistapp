@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <script src="/venders/jquery.min.js"></script>
     <script src="/js/client.js"></script>
-    <link rel="stylesheet" href="styles/stylesheet.css" />
+    <!-- <link rel="stylesheet" href="styles/stylesheet.css" /> -->
     <link rel="stylesheet" href="venders/bootstrap.min.css" />
 
     <title>Task List</title>
@@ -30,17 +30,22 @@
       </tbody>
     </table>
   </div>
+  <div class="container-fluid">
+  <h2>Add a Task</h2>
     <form class="add-task container-fluid">
-      <div class="form-group col-md-4">
+      <div class="form-group">
         <label for="task">Task: </label>
-        <input type="text" name="task" class="form-control" required />
+        <input type="text" name="task" class="form-control" style="color:#888;"
+    value="Task" onfocus="inputFocus(this)" onblur="inputBlur(this)" required />
       </div>
-      <div class="form-group col-md-4">
+      <div class="form-group">
         <label for="discription">Task discription: </label>
-        <input type="text" name="discription" class="form-control" />
+        <input type="text" name="discription" class="form-control" style="color:#888;"
+    value="Discription" onfocus="inputFocus(this)" onblur="inputBlur(this)" required/>
       </div>
       <button id="add-task" class="btn btn-default btn-primary">Add Task</button>
     </form>
+  </div>
     <h2 class="col-xs-12">Complete</h2>
     <div class="container-fluid">
       <table class="table table-responsive">

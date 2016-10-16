@@ -2,7 +2,8 @@ $(function () {
   getTasks();
   $('form').on('submit', addTask);
   $('#todo').on('click', '.complete', completeTask);
-  // $('todo').on('click', '.delete', deleteTask);
+  $('#todo').on('click', '.delete', deleteTask);
+
 });
 
 function getTasks() {
@@ -58,4 +59,16 @@ function completeTask() {
     data: task,
     success: getTasks,
   });
+}
+
+function deleteTask() {
+  if (confirm('Are you sure you want to delete this task?')) {
+    var id = $(this).data('id');
+    console.log('id', id);
+    $.ajax({
+      type: 'DELETE',
+      url: '/task/' + id,
+      success: getTasks,
+    });
+  }
 }

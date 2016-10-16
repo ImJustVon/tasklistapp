@@ -82,7 +82,7 @@ router.put('/', function (req, res) {
   });
 });
 
-router.delete('/', function (req, res) {
+router.delete('/:id', function (req, res) {
   pool.connect(function (err, client, done) {
     if (err) {
       console.log('Error connecting the DB', err);
@@ -91,7 +91,7 @@ router.delete('/', function (req, res) {
       return;
     }
 
-    client.query('DELETE FROM tasklist WHERE id=$1;', [req.body.id],
+    client.query('DELETE FROM tasklist WHERE id=$1;', [req.params.id],
                  function (err, result) {
                   done();
                   if (err) {
@@ -101,7 +101,6 @@ router.delete('/', function (req, res) {
                   }
 
                   console.log('Got rows from the DB:', result.rows);
-                  res.send(result.rows);
                   res.sendStatus(204);
                   done();
                 });

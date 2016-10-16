@@ -1,7 +1,7 @@
 $(function () {
   getTasks();
   $('form').on('submit', addTask);
-  // $('.todo').on('click', '.complete', completeTask);
+  $('#todo').on('click', '.complete', completeTask);
   // $('todo').on('click', '.delete', deleteTask);
 });
 
@@ -22,7 +22,7 @@ function displayTasks(data) {
       $task.append('<td><h3 class="">' + task.task + '</h3></td>');
       $task.append('<td><h5 class="">' + task.discription + '</h5></td>');
       var $td = $('<td></td>');
-      $td.append($('<button class="btn btn-success complete">Complete</button>').data('id', task.id));
+      $td.append($('<button class="btn btn-success complete">Complete</button>').data('id', task));
       $td.append($('<button class="btn btn-danger delete">Delete</button>').data('id', task.id));
       $task.append($td);
       $('#todo').append($task);
@@ -40,6 +40,20 @@ function addTask(event) {
   var task = $(this).serialize();
   $.ajax({
     type: 'POST',
+    url: '/task',
+    data: task,
+    success: getTasks,
+  });
+}
+
+function completeTask() {
+  var task = $(this).data('id');
+  console.log('task on button: ', task);
+  task.complete = true;
+  console.log('task complete: ', task);
+
+  $.ajax({
+    type: 'PUT',
     url: '/task',
     data: task,
     success: getTasks,

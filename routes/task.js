@@ -65,7 +65,7 @@ router.put('/', function (req, res) {
         return;
       }
 
-      client.query('UPDATE todoapp SET task=$2, discription=$3, complete=$4 WHERE id=$1;',
+      client.query('UPDATE tasklist SET task=$2, discription=$3, complete=$4 WHERE id=$1;',
                   [req.body.id, req.body.task, req.body.discription, req.body.complete],
                   function (err, result) {
         if (err) {
